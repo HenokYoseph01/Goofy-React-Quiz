@@ -24,6 +24,9 @@ const initalState = {
   secondsRemaining: null,
 };
 
+console.log(process.env);
+console.log(process.env.REACT_APP_GOOFY_API);
+
 function reducer(state, action) {
   switch (action.type) {
     case "dataRecieved":
@@ -73,7 +76,6 @@ function reducer(state, action) {
       throw new Error("Action is not known");
   }
 }
-
 export default function App() {
   const [
     { questions, status, index, answer, score, highScore, secondsRemaining },
@@ -84,7 +86,7 @@ export default function App() {
   const maxPoints = questions.reduce((prev, cur) => prev + cur.points, 0);
 
   useEffect(function () {
-    fetch("https://json-server-simple.onrender.com/questions")
+    fetch(process.env.REACT_APP_GOOFY_API)
       .then((res) => res.json())
       .then((data) => dispatch({ type: "dataRecieved", payload: data }))
       .catch((err) => dispatch({ type: "dataFailed" }));

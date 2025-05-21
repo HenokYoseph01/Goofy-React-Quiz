@@ -37,15 +37,17 @@ body {
 }
 
 .main {
-  width: 50rem;
+  width: 100%;
+  max-width: 50rem;
+  padding: 1.6rem;
 }
 
 .app-header {
-  width: 66rem;
-  margin-bottom: 4rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  width: 100%;
+  max-width: 66rem;
+  flex-wrap: wrap;
+  text-align: center;
+  gap: 2rem;
 }
 
 .error {
@@ -295,5 +297,58 @@ progress {
   }
   100% {
     background-position: 10% 0%;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 56.25%; /* = 9px */
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  h4 {
+    font-size: 1.8rem;
+  }
+
+  .btn {
+    font-size: 1.8rem;
+    padding: 1rem 2rem;
+  }
+
+  .progress {
+    font-size: 1.6rem;
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .app-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .timer,
+  .btn-ui {
+    float: none;
+    display: block;
+    margin: 1rem auto;
+  }
+
+  .options {
+    gap: 1rem;
+  }
+
+  img {
+    width: 10rem;
   }
 }
